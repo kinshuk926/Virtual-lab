@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+box-sizing:border-box;
+}
+
+#finger{
+  width:400px;
+  height:500px;
+  top:200px;
+  left:600px;
+  position: absolute;
+}
+#blood{
+  width:7px;
+  height:7px;
+  border-radius: 50%;
+  top:290px;
+  left:907px;
+  position: absolute;
+  background-color: red;
+  display:none;
+}
+#animate {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+ top:100px;
+  left:200px;
+  display: block;
+}
+#pipette{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top:50px;
+  left:400px;
+  display: block;
+  z-index: 2;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Step3:Put HCL in Test Tube</button></p> 
+<img id="animate" src="./pictures/dropper2.jpg">
+<img id="finger" src="./pictures/testtube.png">
+<img id="pipette" src="./pictures/kkk.png">
+<span id="blood"></span>
+<p><button onclick="myMove2()">Step4: Mix Blood In Test tube</button></p> 
+<a href="step3.html"><h3>Next main step</h3></a>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 200;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 690) {
+      clearInterval(id);
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 400;
+  posup=50;
+  elem1.style.display="none";
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posl == 660) {
+      //clearInterval(id);
+      if(posup==200)
+              clearInterval(id);
+            else{
+              posup++;
+                elem.style.top = posup + "px";
+            }
+      } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+</script>
+</body>
+</html>

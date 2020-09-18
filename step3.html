@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+box-sizing:border-box;
+}
+
+#finger{
+  width:600px;
+  height:400px;
+  top:200px;
+  left:600px;
+  position: absolute;
+}
+#stirrer{
+    width:100px;
+    height:300px;
+    z-index: 2;
+    left:830px;
+    top:200px;
+    position: absolute;
+}
+#animate {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+ top:80px;
+  left:200px;
+  display: block;
+}
+#pipette{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top:350px;
+  left:200px;
+  display: block;
+}
+</style>
+<body>
+
+<p><button onclick="myMove2()">Step3:Take water from beaker</button></p> 
+<img id="animate" src="./pictures/waterpipette.png">
+<img id="finger" src="./pictures/comparator.png">
+<img id="pipette" src="./pictures/beaker.png">
+<img id="stirrer" src="./pictures/stirrer.png">
+<p><button onclick="myMove()">Step4:Put water in comparator </button></p> 
+<a href="step3.html"><h3>Next main step</h3></a>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 200;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (posl == 720) {
+      clearInterval(id);
+          } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posh = 80;
+  var posup;
+     var id = setInterval(frame, 10);
+  function frame() {
+    if (posh == 210) {
+        if(posup==70)
+              clearInterval(id);
+            else{
+              posup--;
+                elem1.style.top = posup + "px";
+            }
+      } else {
+        posh++; 
+         elem1.style.top = posh + "px"; 
+        posup=posh;
+    }
+  }
+}
+</script>
+</body>
+</html>

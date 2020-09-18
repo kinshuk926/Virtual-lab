@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<style>
+body{
+box-sizing:border-box;
+}
+
+#finger{
+  width:400px;
+  height:200px;
+  top:160px;
+  left:800px;
+  position: absolute;
+}
+#blood{
+  width:7px;
+  height:7px;
+  border-radius: 50%;
+  top:290px;
+  left:907px;
+  position: absolute;
+  background-color: red;
+  display:none;
+}
+#animate {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+ top:100px;
+  left:200px;
+  display: block;
+}
+#pipette{
+  width: 200px;
+  height: 210px;
+  position: absolute;
+  top:100px;
+  left:400px;
+  display: block;
+}
+</style>
+<body>
+
+<p><button onclick="myMove()">Step1:Prick The Finger</button></p> 
+<img id="animate" src="./pictures/pricker.jpg">
+<img id="finger" src="./pictures/finger.png">
+<img id="pipette" src="./pictures/empt.png">
+<span id="blood"></span>
+<p><button onclick="myMove2()">Step2:suck the blood</button></p> 
+<a href="step2.html"><h3>Next main step</h3></a>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 200;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posl == 710) {
+      //clearInterval(id);
+      elem2.style.display="block";
+    } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+function myMove2() {
+  var elem=document.getElementById("pipette");
+  var elem1 = document.getElementById("animate");  
+  var elem2=document.getElementById("blood");
+  var posl = 400;
+  elem1.style.display="none";
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (posl == 800) {
+      clearInterval(id);
+      } else {
+      posl++; 
+         elem.style.left = posl + "px"; 
+    }
+  }
+}
+</script>
+</body>
+</html>
