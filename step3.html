@@ -1,61 +1,135 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      <link rel="stylesheet" href="css/styles.css">
 <style>
-body{
-box-sizing:border-box;
-}
-
 #finger{
-  width:600px;
+  width:400px;
   height:400px;
-  top:200px;
-  left:600px;
+  top:50px;
+  left:450px;
   position: absolute;
-}
-#stirrer{
-    width:100px;
-    height:300px;
-    z-index: 2;
-    left:830px;
-    top:200px;
-    position: absolute;
 }
 #animate {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   position: absolute;
- top:80px;
-  left:200px;
+ /* top:30px; */
+  left:50px;
   display: block;
 }
 #pipette{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   position: absolute;
-  top:350px;
-  left:200px;
+  top:250px;
+  left:50px;
   display: block;
 }
+#waterdrp{
+  position:absolute;
+  left:20px;
+  top: 80px;
+  text-align: center;
+  width:70px;
+  border:2px solid black;
+}
+#beaker{
+  position: absolute;
+  left:200px;
+  top:300px;
+  border:2px solid black;
+}
+#comparator{
+  position: absolute;
+  left:750px;
+  top:230px;
+  border:2px solid black;
+  width:120px;
+  text-align: center;
+}
+#drop{
+  position: absolute;
+  top:140px;
+  left:620px;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+#instruct{
+  position: absolute;
+  left:300px;
+  top:520px;
+  width:700px;
+}
 </style>
+</head>
 <body>
 
-<p><button onclick="myMove2()">Step3:Take water from beaker</button></p> 
-<img id="animate" src="./pictures/waterpipette.png">
-<img id="finger" src="./pictures/comparator.png">
-<img id="pipette" src="./pictures/beaker.png">
-<img id="stirrer" src="./pictures/stirrer.png">
-<p><button onclick="myMove()">Step4:Put water in comparator </button></p> 
-<a href="step3.html"><h3>Next main step</h3></a>
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+               <div id="collapsable-nav" class="collapse navbar-collapse">
+                  <h1 style="color: whitesmoke;text-align: center;margin-top: 0"><u>HAEMOGLOBIN ESTIMATION BY SAHLIS METHOD</u></h1>
+            </div><!-- .collapse .navbar-collapse -->
+          </div><!-- .container -->
+        </nav><!-- #header-nav -->
+      </header>
+     
+      <div id="options"> 
+          <p><button onclick="myMove2()">Step3:Take water from beaker</button></p>  
+          <p><button onclick="myMove()">Step4:Put water in comparator </button></p>  
+          <a href="step4.html"><h3>Conclusion and measurement</h3></a>
+      </div>
+    
+    <div id="imgcont">
+        <img id="animate" src="./pictures/waterpipette.png">
+        <img id="finger" src="./pictures/z.png">
+        <img id="pipette" src="./pictures/beaker.png">
+        <img id="drop" src="./pictures/drop.png">
+        <div id="waterdrp">WATER DROPPER</div>
+        <div id="beaker">WATER BEAKER</div>
+        <div id="comparator">COMPARATOR WITH TEST TUBE FOR ESTIMATION</div>
+        <div id="heading" style="text-align:center"><U>THIRD STEP-TEST TUBE IN COMPARATOR AND ADDING WATER TO GET COLOR</U></div>
+    </div>
+
+    <div id="instruct">
+      <h3><u>INSTRUCTIONS</u></h3>
+      <ul>
+      <li><h4>First read all the steps carefully, read what are the steps you have to perform in procedural way here.</h4></li>
+      <li><h4>After reading this start selecting appropriate options from left column to see experiment in action.</h4></li>
+      <li><h4>Its a simulation so each step will perform task once. After clicking all steps in left column click next to get further observation.</h4></li>
+      </li>
+    </div>
+
+    <div id="steps">
+            <div class="step"><h5>STEP 1</h5>TAKE WATER FROM BEAKER TO ADD IN HAEMOGLOBINOMETER TUBE</div>
+            <div class="step"><h5>STEP 2</h5>ADD DISTRIL WATER TILL COLOR OF SOLUTION IS SIMILAR TO COMPERATOR BOX ( AVOID OVER DILUTION) AND STIR IT CONTINOUSLY</div>
+            <div class="step"><h5>STEP 3</h5>AFTER ADDING WATER EVERYTIME COMPARE COLOR IN HAEMOGLOBINOMETER COMPERATOR BOX</div>
+            <div class="step"><h5>STEP 4</h5>now we will see how haemoglobinometre tube color matches comparator and take the reading</div>
+
+    </div>
 
 <script>
 function myMove() {
   var elem = document.getElementById("animate");  
-  var elem2=document.getElementById("blood");
-  var posl = 200;
+  var elem2=document.getElementById("drop");
+  var posl = 50;
+  var posb=140;
   var id = setInterval(frame, 5);
   function frame() {
-    if (posl == 720) {
-      clearInterval(id);
+    if (posl == 510) {
+      // clearInterval(id);
+                  elem2.style.display="block";
+                  if(posb==300){
+                          elem2.style.display="none";
+                    }
+                  else{
+                          posb++;
+                          //console.log(posb);
+                          elem2.style.top=posb +"px";
+                  }
           } else {
       posl++; 
          elem.style.left = posl + "px"; 
@@ -66,12 +140,12 @@ function myMove2() {
   var elem=document.getElementById("pipette");
   var elem1 = document.getElementById("animate");  
   var elem2=document.getElementById("blood");
-  var posh = 80;
+  var posh =0;
   var posup;
      var id = setInterval(frame, 10);
   function frame() {
-    if (posh == 210) {
-        if(posup==70)
+    if (posh == 160) {
+        if(posup==0)
               clearInterval(id);
             else{
               posup--;
