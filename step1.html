@@ -9,8 +9,8 @@
 #finger{
   width:300px;
   height:300px;
-  top:140px;
-  left:600px;
+  top:28%;
+  left:65%;
   position: absolute;
 }
 #blood{
@@ -30,6 +30,7 @@
   top:75px; 
   left:20px;
   display: block;
+  
   
 }
 #pipette{
@@ -88,8 +89,14 @@
   </header>
  
   <div id="options"> 
-      <p><button onclick="myMove()">Step1:Prick The Finger</button></p>   
-      <p><button onclick="myMove2()">Step2:Suck the blood</button></p> 
+      <p><button>Select The Lancet</button></p> 
+      <p>
+          <img style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/b.png">
+          <img  style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/empt.png">
+      </p>
+      <p><button onclick="myMove()">Prick The Finger</button></p> 
+      <p><button>Select haemoglobinometer pipette</button></p> 
+      <p><button onclick="myMove2()">Suck the blood</button></p> 
       <a href="step2.html"><h3>Next main step</h3></a>
   </div>
 
@@ -98,13 +105,13 @@
 <img id="pipette" src="./pictures/empt.png">
 <img id="finger" src="./pictures/hand.png">
 <img id="blood" src="./pictures/bloodspot.png">
-<div id="hcldropper">PRICKER</div> 
+<!-- <div id="hcldropper">PRICKER</div> 
 <div id="hemopipette">HEAMOGLOBINOMETER PIPETTE</div>
-<div id="hemotube">HAND WHOSE BLOOD SAMPLE TO BE TAKEN</div>
+<div id="hemotube">HAND WHOSE BLOOD SAMPLE TO BE TAKEN</div> -->
 <div id="heading" style="text-align:center;border-bottom:2px solid black">FIRST STEP-PRICKING AND TAKING BLOOD SAMPLE</div>
 </div>
 
-<div id="instruct">
+<!-- <div id="instruct">
     <h3><u>INSTRUCTIONS</u></h3>
     <ul>
     <li><h4>First read all the steps carefully, read what are the steps you have to perform in procedural way here.</h4></li>
@@ -117,7 +124,7 @@
 <div class="step"><h5>STEP 1</h5>PROPERLY CLEAN YOUR HANDS BEFORE TAKING THE SAMPLE.<br>PRICK THE DISTRIL FINGER AND TAKE THE BLOOD SAMPLE  (USE MIDDLE/RING FINGER FOR THE SAMPLE). <br>APPLY SPIRIT SWAB OVER PRICKING AREA</div>
 <div class="step"><h5>STEP 2</h5>TAKE LANCET AND PRICK DISTAL PART OF FINGER (AVOID MULTIPLE PRICKING).<br>PRICK ONCE IN MIDDLE OR RING FINGR </div>
 <div class="step"><h5>STEP 3</h5>BY THE HELP OF HAEMOGLOBINOMETER PIPETTE SUCK THE BLOOD UP TO 20μl MARKING to get the blood sample.</div>
-</div>
+</div> -->
 
 
 <script>

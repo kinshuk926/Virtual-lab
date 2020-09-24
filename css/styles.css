@@ -33,16 +33,16 @@ body{
     padding-top: 30px;
   }
   #options{
-    float:left; 
+    float:right; 
     height:800px;
-    width:180px;
+    width:15%;
     background-image: url("../pictures/bg2.gif");
     text-align: center;
     padding: 10px;
   }
   #imgcont{
       border:5px solid black;
-      width:900px;
+      width:60%;
       height: 400px;
       left:250px; 
       position: absolute;
