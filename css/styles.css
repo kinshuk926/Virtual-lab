@@ -4,6 +4,7 @@ body {
   background-image:url("../pictures/bg3.jpg");
   background-repeat: no-repeat; 
   background-size: cover;
+  font-family: 'Oxygen', sans-serif;
 }
 #categories{
   width:100%;
@@ -30,7 +31,8 @@ body{
     height:50px;
     margin: 0;
     padding: 0;
-    padding-top: 30px;
+    /* padding-top: 30px; */
+    text-align: center;
   }
   #options{
     float:right; 
@@ -65,4 +67,12 @@ body{
   h5{
     margin-bottom: 2px;
     margin-top:2px;
+  }
+  #instructions{
+    position: absolute;
+    float:left;
+    width:200px;
+    margin: 10px;
+    border:2px solid black;
+    padding:5px;
   }

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/styles.css">
   <style>
 #imgcont{
@@ -30,8 +34,6 @@
   top:75px; 
   left:20px;
   display: block;
-  
-  
 }
 #pipette{
   width: 250px;
@@ -72,6 +74,57 @@
   top:600px;
   width:800px;
 }
+.highlight_d{
+ transform: scale(1.3,1.5);
+}
+
+.highlight{
+ transform: scale(1.5,1.5);
+}
+
+#button2,#button3,#button4,#button5{
+  display: none;
+}
+/* .span_d {
+    display: none;
+    font-size: 25px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 20%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.span {
+    display: none;
+    font-size: 20px;
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40%;
+    left: 36%;
+    position: absolute;
+    bottom:  8px;
+    height: 50px;
+    cursor: pointer;
+    
+    top: 80%;
+    
+}
+.highlight:hover >.span{
+	display: block;
+}
+.highlight_d:hover > .span_d{
+	display: block;
+} */
 
 </style>
 </head>
@@ -88,48 +141,50 @@
     </nav><!-- #header-nav -->
   </header>
  
-  <div id="options"> 
-      <p><button>Select The Lancet</button></p> 
-      <p>
-          <img style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/b.png">
-          <img  style="height:50px;width: 50px; border: 2px solid black" id="inopt" src="./pictures/empt.png">
-      </p>
-      <p><button onclick="myMove()">Prick The Finger</button></p> 
-      <p><button>Select haemoglobinometer pipette</button></p> 
-      <p><button onclick="myMove2()">Suck the blood</button></p> 
-      <a href="step2.html"><h3>Next main step</h3></a>
+  <div id="instructions"> 
+    <h3><u><b>INSTRUCTIONS</b></u></h3>
+    <ul>
+    <li><p>Follow the steps which will appear in right sides one by one. Select the apparatus and preform the task</p></li>
+    <li><p>As a precaution sterlize the finger with cotton to curb the chance of ny infection before pricking</p></li>
+    </ul>
+  </div>
+  <div id="options">
+    <h3><u><b>STEPS</b></u></h3> 
+      <p><button onclick="highlight()">Select The Lancet</button></p> 
+      <p id="button2"><button  onclick="myMove()">Prick The Finger</button></p> 
+      <p id="button3"><button onclick="highlight2()">Select haemoglobinometer pipette</button></p> 
+      <p id="button4"><button onclick="myMove2()">Suck the blood</button></p> 
+      <a href="step2.html" id="button5"><button><h3>Next main step</h3></button></a>
   </div>
 
 <div id="imgcont">
-<img id="animate" src="./pictures/b.png">
-<img id="pipette" src="./pictures/empt.png">
-<img id="finger" src="./pictures/hand.png">
+<img id="animate" src="./pictures/b.png"> <!--<div class="span_d">Lancet</div>-->
+<img id="pipette" src="./pictures/empt.png"><!--<div class="span">Haemoglobinometer Pipette</div>-->
+<img id="finger" src="./pictures/hand.png" >
 <img id="blood" src="./pictures/bloodspot.png">
-<!-- <div id="hcldropper">PRICKER</div> 
-<div id="hemopipette">HEAMOGLOBINOMETER PIPETTE</div>
-<div id="hemotube">HAND WHOSE BLOOD SAMPLE TO BE TAKEN</div> -->
-<div id="heading" style="text-align:center;border-bottom:2px solid black">FIRST STEP-PRICKING AND TAKING BLOOD SAMPLE</div>
+<div id="heading" style="text-align:center;border-bottom:2px solid black" ><b>FIRST STEP-PRICKING AND TAKING BLOOD SAMPLE</b></div>
 </div>
-
-<!-- <div id="instruct">
-    <h3><u>INSTRUCTIONS</u></h3>
-    <ul>
-    <li><h4>First read all the steps carefully, read what are the steps you have to perform in procedural way here.</h4></li>
-    <li><h4>After reading this start selecting appropriate options from left column to see experiment in action.</h4></li>
-    <li><h4>Its a simulation so each step will perform task once. After clicking all steps in left column click next to get further observation.</h4></li>
-    </li>
-  </div>
-
-<div id="steps">
-<div class="step"><h5>STEP 1</h5>PROPERLY CLEAN YOUR HANDS BEFORE TAKING THE SAMPLE.<br>PRICK THE DISTRIL FINGER AND TAKE THE BLOOD SAMPLE  (USE MIDDLE/RING FINGER FOR THE SAMPLE). <br>APPLY SPIRIT SWAB OVER PRICKING AREA</div>
-<div class="step"><h5>STEP 2</h5>TAKE LANCET AND PRICK DISTAL PART OF FINGER (AVOID MULTIPLE PRICKING).<br>PRICK ONCE IN MIDDLE OR RING FINGR </div>
-<div class="step"><h5>STEP 3</h5>BY THE HELP OF HAEMOGLOBINOMETER PIPETTE SUCK THE BLOOD UP TO 20μl MARKING to get the blood sample.</div>
-</div> -->
 
 
 <script>
+
+function highlight(){
+  var elem=document.getElementById("animate");
+  elem.classList.add("highlight_d");
+  var elem2=document.getElementById("button2");
+  elem2.style.display="block";
+}
+
+function highlight2(){
+  var elem=document.getElementById("pipette");
+  elem.classList.add("highlight");
+  var elem2=document.getElementById("button4");
+  elem2.style.display="block";
+}
+
 function myMove() {
-  var elem = document.getElementById("animate");  
+  var elem = document.getElementById("animate"); 
+  elem.classList.remove("highlight_d"); 
   var elem2=document.getElementById("blood");
   var posl = 20;
   var id = setInterval(frame, 5);
@@ -142,9 +197,13 @@ function myMove() {
          elem.style.left = posl + "px"; 
     }
   }
+  var elem3=document.getElementById("button3");
+  elem3.style.display="block";
 }
+
 function myMove2() {
   var elem=document.getElementById("pipette");
+  elem.classList.remove("highlight");
   var elem1 = document.getElementById("animate");  
   var elem2=document.getElementById("blood");
   var posl = 250;
@@ -158,7 +217,10 @@ function myMove2() {
          elem.style.left = posl + "px"; 
     }
   }
+  var elem3=document.getElementById("button5");
+  elem3.style.display="block";
 }
+
 </script>
 </body>
 </html>
